@@ -3,3 +3,9 @@
 ################################################################################
 
 /calculaimpostos/bin/Debug/netcoreapp3.1
+/calculaimpostos/obj/Debug/netcoreapp3.1
+/calculaimpostos/obj/CursoDeseg.csproj.nuget.dgspec.json
+/calculaimpostos/obj/CursoDeseg.csproj.nuget.g.props
+*.targets
+*.json
+*.props
