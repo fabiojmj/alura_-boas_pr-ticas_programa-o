@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\calculaimpostos.csproj",
-      "projectName": "calculaimpostos",
-      "projectPath": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\calculaimpostos.csproj",
+      "projectUniqueName": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\CursoDesignPatterns.csproj",
+      "projectName": "CursoDesignPatterns",
+      "projectPath": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\CursoDesignPatterns.csproj",
       "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\obj\\",
       "projectStyle": "PackageReference",

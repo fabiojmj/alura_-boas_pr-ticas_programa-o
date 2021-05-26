@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1GgFD+uKnXvgnWyEHDDl2lVyUvt4/lFDyWMJHd1x0XeApM/PrxeNkXFRkmn15pyTU90rvP6Lm4DbP+m0DTSHWg==",
+  "dgSpecHash": "lzYxRmUKVRYEKd75uQgX8Lqp6sMx7VzBpT6I1AzpmxO6ZKHOu7oAoyHM+KpwmeRx/hJg22jg1wo2x+N4Fw0n1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\calculaimpostos.csproj",
+  "projectFilePath": "C:\\Users\\fabio\\Cursos\\Alura\\alura_boas_praticas_programacao\\calculaimpostos\\CursoDesignPatterns.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
