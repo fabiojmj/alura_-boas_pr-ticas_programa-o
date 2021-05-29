@@ -17,7 +17,20 @@ namespace calculaimpostos
             calculadorImpostos.RealizaCalculo(orcamento, iss);
             calculadorImpostos.RealizaCalculo(orcamento, icms);
             calculadorImpostos.RealizaCalculo(orcamento,iccc);
+
+
+            CalculadorDesconto calculadorDesconto = new CalculadorDesconto();
+            Orcamento orcamento2 = new Orcamento(500.0);
+            orcamento2.AdicionaItem(new Item("Caneta",250));
+            orcamento2.AdicionaItem(new Item("Lapis", 250));
+
+            double desconto = calculadorDesconto.Calcula(orcamento2);
+            Console.WriteLine(desconto);
+
             Console.ReadKey();
+
+
+
         }
     }
 }
