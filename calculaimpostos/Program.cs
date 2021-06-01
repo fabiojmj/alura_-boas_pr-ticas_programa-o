@@ -21,8 +21,8 @@ namespace calculaimpostos
 
             CalculadorDesconto calculadorDesconto = new CalculadorDesconto();
             Orcamento orcamento2 = new Orcamento(500.0);
-            orcamento2.AdicionaItem(new Item("Caneta",250));
-            orcamento2.AdicionaItem(new Item("Lapis", 250));
+            orcamento2.AdicionaItem(new Item("CANETA",250));
+            orcamento2.AdicionaItem(new Item("LAPIS", 250));
 
             double desconto = calculadorDesconto.Calcula(orcamento2);
             Console.WriteLine(desconto);
