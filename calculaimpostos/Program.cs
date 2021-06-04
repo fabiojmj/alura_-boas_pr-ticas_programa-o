@@ -1,4 +1,5 @@
 ﻿using CursoDesignPatterns;
+using CursoDesignPatterns.CalculaDesconto.requisicao_web;
 using System;
 
 namespace calculaimpostos
@@ -26,6 +27,12 @@ namespace calculaimpostos
 
             double desconto = calculadorDesconto.Calcula(orcamento2);
             Console.WriteLine(desconto);
+
+
+            Conta conta = new Conta("Nome Titular",500);
+            Requisicao requisicao = new Requisicao(Formato.CSV);
+            double saldo = new Servidor().ServidorWeb(requisicao,conta);
+            Console.WriteLine(saldo);
 
             Console.ReadKey();
 
