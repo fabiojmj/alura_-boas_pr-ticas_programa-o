@@ -8,10 +8,10 @@ namespace CursoDesignPatterns.CalculaDesconto.requisicao_web
     {
         public ITrataFormato Proximo { get ; set ; }
 
-        public FormatoCSV(ITrataFormato proximo)
-        {
-            Proximo = proximo;
-        }
+        //public FormatoCSV(ITrataFormato proximo)
+        //{
+        //    Proximo = proximo;
+        //}
 
         public double RetornaSaldo(Requisicao requisicao, Conta conta)
         {
