@@ -8,6 +8,11 @@ namespace CursoDesignPatterns.CalculaDesconto.requisicao_web
     {
         public ITrataFormato Proximo { get ; set ; }
 
+        public FormatoXML(ITrataFormato proximo)
+        {
+            Proximo = proximo;
+        }
+
         public double RetornaSaldo(Requisicao requisicao, Conta conta)
         {
             if (Formato.XML.Equals(requisicao.Formato))
