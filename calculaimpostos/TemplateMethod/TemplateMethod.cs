@@ -6,7 +6,7 @@ namespace CursoDesignPatterns.TemplateMethod
 {
     public abstract class TemplateMethod : IImposto
     {
-        public double Calcula(Orcamento orcamento)
+        public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
             {

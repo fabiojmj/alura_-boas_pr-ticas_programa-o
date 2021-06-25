@@ -4,8 +4,28 @@ using System.Text;
 
 namespace CursoDesignPatterns
 {
-    public interface IImposto
+    public abstract class IImposto
     {
-        double Calcula(Orcamento orcamento);
+        public IImposto OutroImposto { get; set; }
+        public IImposto(IImposto imposto)
+        {
+            OutroImposto = imposto;
+        }
+
+        public IImposto()
+        {
+            OutroImposto = null;
+        }
+
+        public abstract double Calcula(Orcamento orcamento);
+
+        protected double CalculoDoOutroImposto(Orcamento orcamento)
+        {
+            if (OutroImposto is null)
+            {
+                return 0;
+            }
+            return OutroImposto.Calcula(orcamento);
+        }
     }
 }

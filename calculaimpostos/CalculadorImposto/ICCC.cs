@@ -6,7 +6,16 @@ namespace CursoDesignPatterns
 {
     public class ICCC : IImposto
     {
-        public double Calcula(Orcamento orcamento)
+        public ICCC(IImposto imposto) : base(imposto)
+        {
+        }
+
+        public ICCC()
+        {
+
+        }
+
+        public override double Calcula(Orcamento orcamento)
         {
             /*Crie o imposto que se chama ICCC, que retorna 5 % do valor total 
              * caso o orçamento seja menor do que R$ 1000,00 reais, 7 % caso
@@ -15,17 +24,17 @@ namespace CursoDesignPatterns
 
             if (orcamento.Valor < 1000)
             {
-                return orcamento.Valor * 0.05;
+                return orcamento.Valor * 0.05 + CalculoDoOutroImposto(orcamento);
             }
             else if (orcamento.Valor >= 1000 && orcamento.Valor < 3000)
             {
-                return orcamento.Valor * 0.07;
+                return orcamento.Valor * 0.07 + CalculoDoOutroImposto(orcamento);
             }
             else
             {
-                return orcamento.Valor * 0.08 + 30;
+                return orcamento.Valor * 0.08 + 30 + CalculoDoOutroImposto(orcamento);
             }
 
-        }
+        }        
     }
 }

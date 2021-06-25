@@ -34,9 +34,13 @@ namespace calculaimpostos
             double saldo = new Servidor().ServidorWeb(requisicao,conta);
             Console.WriteLine(saldo);
 
+
+            IImposto impostoComplexo = new ISS(new ICMS());
+            Orcamento orcamento3 = new Orcamento(500.0);
+
+            double valor = impostoComplexo.Calcula(orcamento3);
+            Console.WriteLine(valor);
             Console.ReadKey();
-
-
 
         }
     }
