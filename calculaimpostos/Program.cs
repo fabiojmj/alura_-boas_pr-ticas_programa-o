@@ -1,5 +1,6 @@
 ﻿using CursoDesignPatterns;
 using CursoDesignPatterns.CalculaDesconto.requisicao_web;
+using CursoDesignPatterns.CalculadorImposto;
 using System;
 
 namespace calculaimpostos
@@ -40,8 +41,13 @@ namespace calculaimpostos
 
             double valor = impostoComplexo.Calcula(orcamento3);
             Console.WriteLine(valor);
-            Console.ReadKey();
+           
+            IImposto impostoMuitoAlto = new ImpostoMuitoAlto(new ISS());
+            Orcamento orcamento4 = new Orcamento(100.0);
 
+            double valorAlto = impostoMuitoAlto.Calcula(orcamento4);
+            Console.WriteLine(valorAlto);
+            Console.ReadKey();
         }
     }
 }
