@@ -6,6 +6,14 @@ namespace CursoDesignPatterns.TemplateMethod
 {
     public abstract class TemplateMethod : IImposto
     {
+        protected TemplateMethod(IImposto imposto) : base(imposto)
+        {
+        }
+
+        protected TemplateMethod()
+        {
+        }
+
         public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
