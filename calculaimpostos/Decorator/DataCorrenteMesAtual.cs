@@ -1,4 +1,4 @@
-﻿using CursoDesignPatterns.TemplateMethod;
+﻿using CursoDesignPatterns.CalculaDesconto.requisicao_web;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,18 +7,38 @@ namespace CursoDesignPatterns.Decorator
 {
     public class DataCorrenteMesAtual : Filtro
     {
-        public DataCorrenteMesAtual()
+        public IList<Conta> ContasFiltradas { get; set; } 
+        public DataCorrenteMesAtual() : base()
+        {            
+        }
+
+        public DataCorrenteMesAtual(Filtro filtro):base(filtro)
         {
         }
 
-        public DataCorrenteMesAtual(Filtro filtro)
+        public override bool AplicaCondicaoFiltro(Conta conta)
         {
-            ProximoFiltro = filtro;
+            return conta.DataAbertura == DateTime.Now;
         }
 
-        public override IList<Conta> Filtra(IList<Conta> contas)
+        public override IList<Conta> AplicaFiltro(IList<Conta> contas)
         {
-            throw new NotImplementedException();
+            ContasFiltradas = new List<Conta>();
+
+            foreach (var item in contas)
+            {
+                if (AplicaCondicaoFiltro(item))
+                {
+                    ContasFiltradas.Add(item);
+                }
+            }
+
+            foreach(var conta in Filtra(ContasFiltradas))
+            {
+                ContasFiltradas.Add(conta);
+            }
+
+            return ContasFiltradas;
         }
     }
 }

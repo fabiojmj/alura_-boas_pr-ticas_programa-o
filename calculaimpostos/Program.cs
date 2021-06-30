@@ -1,7 +1,10 @@
 ﻿using CursoDesignPatterns;
 using CursoDesignPatterns.CalculaDesconto.requisicao_web;
 using CursoDesignPatterns.CalculadorImposto;
+using CursoDesignPatterns.Decorator;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace calculaimpostos
 {
@@ -51,6 +54,22 @@ namespace calculaimpostos
 
             double valorAlto = impostoMuitoAlto.Calcula(orcamento4);
             Console.WriteLine(valorAlto);
+
+            List<Conta> contas = new List<Conta>();
+            contas.Add(new Conta("nome 1",10));
+            contas.Add(new Conta("nome 2", 100));
+            contas.Add(new Conta("nome 3", 1000));
+            contas.Add(new Conta("nome 4", 1000));
+            contas.Add(new Conta("nome 5", 100));
+
+            Filtro filtraLista = new ContaMaior500(new ContaMenor100(new DataCorrenteMesAtual()));
+            List<Conta> resultadoFiltro = filtraLista.AplicaFiltro(contas.ToList()).ToList();
+
+            foreach (var item in resultadoFiltro)
+            {
+                Console.WriteLine(item.NomeTitular+" "+item.Saldo.ToString());
+            }
+
             #endregion
             Console.ReadKey();
         }
