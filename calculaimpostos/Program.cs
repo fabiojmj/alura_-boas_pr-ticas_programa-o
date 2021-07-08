@@ -71,6 +71,23 @@ namespace calculaimpostos
             }
 
             #endregion
+
+
+            #region State
+            Orcamento reforma = new Orcamento(500.0);
+
+            reforma.AplicaDescontoExtra(); // resultado aqui depende da situação corrente do orçamento
+            
+            Console.WriteLine(reforma.Valor); // imprime 475,00 pois descontou 5%
+            reforma.Aprova(); // aprova nota!
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor); // imprime 465,50 pois descontou 2%
+
+            reforma.Finaliza();
+
+            #endregion
+
             Console.ReadKey();
         }
     }
