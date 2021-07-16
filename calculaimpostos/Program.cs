@@ -1,4 +1,5 @@
 ﻿using CursoDesignPatterns;
+using CursoDesignPatterns.Builder;
 using CursoDesignPatterns.CalculaDesconto.requisicao_web;
 using CursoDesignPatterns.CalculadorImposto;
 using CursoDesignPatterns.Decorator;
@@ -72,7 +73,6 @@ namespace calculaimpostos
 
             #endregion
 
-
             #region State
             Orcamento reforma = new Orcamento(500.0);
 
@@ -85,6 +85,18 @@ namespace calculaimpostos
             Console.WriteLine(reforma.Valor); // imprime 465,50 pois descontou 2%
 
             reforma.Finaliza();
+
+            #endregion
+
+            #region Builder
+            NotaFiscalBuilder criador = new NotaFiscalBuilder();
+            criador.ParaEmpresa("Caelum");
+            criador.ComCnpj("123.456.789/0001-10");
+            criador.ComItem(new ItemDaNota("item 1", 100.0));
+            criador.ComItem(new ItemDaNota("item 2", 200.0));
+            criador.ComItem(new ItemDaNota("item 3", 300.0));
+
+            NotaFiscal notaFiscal = criador.Build();
 
             #endregion
 
