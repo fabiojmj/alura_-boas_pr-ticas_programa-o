@@ -89,12 +89,14 @@ namespace calculaimpostos
             #endregion
 
             #region Builder
-            NotaFiscalBuilder criador = new NotaFiscalBuilder();
-            criador.ParaEmpresa("Caelum");
-            criador.ComCnpj("123.456.789/0001-10");
-            criador.ComItem(new ItemDaNota("item 1", 100.0));
-            criador.ComItem(new ItemDaNota("item 2", 200.0));
-            criador.ComItem(new ItemDaNota("item 3", 300.0));
+            NotaFiscalBuilder criador = new NotaFiscalBuilder()
+            .ParaEmpresa("Caelum")
+            .ComCnpj("123.456.789/0001-10")
+            .ComItem(new ItemDaNota("item 1", 100.0))
+            .ComItem(new ItemDaNota("item 2", 200.0))
+            .ComItem(new ItemDaNota("item 3", 300.0))
+            .ComObservacoes("Testando observaçoes")
+            .DataAtual();
 
             NotaFiscal notaFiscal = criador.Build();
 

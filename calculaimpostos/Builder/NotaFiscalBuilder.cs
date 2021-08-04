@@ -16,31 +16,36 @@ namespace CursoDesignPatterns.Builder
 
         public IList<ItemDaNota> Itens = new List<ItemDaNota>();
 
-        public void ParaEmpresa(string razao)
+        public NotaFiscalBuilder ParaEmpresa(string razao)
         {
             RazaoSocial = razao;
+            return this;
         }
 
-        public void ComCnpj(string cnpj)
+        public NotaFiscalBuilder ComCnpj(string cnpj)
         {
             Cnpj = cnpj;
+            return this;
         }
 
-        public void ComItem(ItemDaNota item)
+        public NotaFiscalBuilder ComItem(ItemDaNota item)
         {
             Itens.Add(item);
             ValorBruto += item.Valor;
             Impostos += ValorBruto * 0.05;
+            return this;
         }
 
-        public void DataAtual()
+        public NotaFiscalBuilder DataAtual()
         {
             DataDeEmissao = DateTime.Now;
+            return this;
         }
 
-        public void ComObservacoes(string observacoes)
+        public NotaFiscalBuilder ComObservacoes(string observacoes)
         {
             Observacoes = observacoes;
+            return this;
         }
 
         public NotaFiscal Build()
