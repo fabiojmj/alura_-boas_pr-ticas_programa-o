@@ -103,6 +103,7 @@ namespace calculaimpostos
             criador.AdicionaAcao(new EnviaEmail());
             criador.AdicionaAcao(new EnviaSMS());
             criador.AdicionaAcao(new SalvaBanco());
+            criador.AdicionaAcao(new Multiplicador(5));
             #endregion
 
             NotaFiscal notaFiscal = criador.Build();
