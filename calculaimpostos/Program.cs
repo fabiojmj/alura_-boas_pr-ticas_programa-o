@@ -3,6 +3,7 @@ using CursoDesignPatterns.Builder;
 using CursoDesignPatterns.CalculaDesconto.requisicao_web;
 using CursoDesignPatterns.CalculadorImposto;
 using CursoDesignPatterns.Decorator;
+using CursoDesignPatterns.Observer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,10 +97,15 @@ namespace calculaimpostos
             .ComItem(new ItemDaNota("item 2", 200.0))
             .ComItem(new ItemDaNota("item 3", 300.0))
             .ComObservacoes("Testando observaçoes")
-            .DataAtual();
+            .DataAtual(DateTime.Now);
+
+            #region Observer
+            criador.AdicionaAcao(new EnviaEmail());
+            criador.AdicionaAcao(new EnviaSMS());
+            criador.AdicionaAcao(new SalvaBanco());
+            #endregion
 
             NotaFiscal notaFiscal = criador.Build();
-
             #endregion
 
             Console.ReadKey();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CursoDesignPatterns.Observer;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,9 +17,12 @@ namespace CursoDesignPatterns.Builder
 
         public IList<ItemDaNota> Itens = new List<ItemDaNota>();
 
+        public IList<IExecutaAcoes> executaAcoes { get; set; }
+
         public NotaFiscalBuilder()
         {
             DataDeEmissao = DateTime.Now;
+            executaAcoes = new List<IExecutaAcoes>();
         }
 
         public NotaFiscalBuilder ParaEmpresa(string razao)
@@ -53,9 +57,21 @@ namespace CursoDesignPatterns.Builder
             return this;
         }
 
+        public void AdicionaAcao(IExecutaAcoes acao)
+        {
+            executaAcoes.Add(acao);
+        }
+
         public NotaFiscal Build()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, DataDeEmissao, ValorBruto, Impostos, Itens, Observacoes);
+            var nota = new NotaFiscal(RazaoSocial, Cnpj, DataDeEmissao, ValorBruto, Impostos, Itens, Observacoes);
+
+            foreach (var item in executaAcoes)
+            {
+                item.Acao(nota);
+            }
+
+            return nota;
         }
     }
 }
