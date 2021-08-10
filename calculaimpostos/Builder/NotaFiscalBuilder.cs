@@ -23,7 +23,7 @@ namespace CursoDesignPatterns.Builder
         {
             DataDeEmissao = DateTime.Now;
             executaAcoes = new List<IExecutaAcoes>();
-        }
+        }      
 
         public NotaFiscalBuilder ParaEmpresa(string razao)
         {
@@ -60,6 +60,11 @@ namespace CursoDesignPatterns.Builder
         public void AdicionaAcao(IExecutaAcoes acao)
         {
             executaAcoes.Add(acao);
+        }
+
+        public void AdicionaAcao(IList<IExecutaAcoes> acoes)
+        {
+            executaAcoes = acoes;
         }
 
         public NotaFiscal Build()

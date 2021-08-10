@@ -58,7 +58,7 @@ namespace calculaimpostos
             Console.WriteLine(valorAlto);
 
             List<Conta> contas = new List<Conta>();
-            contas.Add(new Conta("nome 1",10));
+            contas.Add(new Conta("nome 1", 10));
             contas.Add(new Conta("nome 2", 100));
             contas.Add(new Conta("nome 3", 1000));
             contas.Add(new Conta("nome 4", 1000));
@@ -69,7 +69,7 @@ namespace calculaimpostos
 
             foreach (var item in resultadoFiltro)
             {
-                Console.WriteLine(item.NomeTitular+" "+item.Saldo.ToString());
+                Console.WriteLine(item.NomeTitular + " " + item.Saldo.ToString());
             }
 
             #endregion
@@ -78,7 +78,7 @@ namespace calculaimpostos
             Orcamento reforma = new Orcamento(500.0);
 
             reforma.AplicaDescontoExtra(); // resultado aqui depende da situação corrente do orçamento
-            
+
             Console.WriteLine(reforma.Valor); // imprime 475,00 pois descontou 5%
             reforma.Aprova(); // aprova nota!
 
@@ -90,6 +90,9 @@ namespace calculaimpostos
             #endregion
 
             #region Builder
+
+
+
             NotaFiscalBuilder criador = new NotaFiscalBuilder()
             .ParaEmpresa("Caelum")
             .ComCnpj("123.456.789/0001-10")
@@ -100,10 +103,19 @@ namespace calculaimpostos
             .DataAtual(DateTime.Now);
 
             #region Observer
-            criador.AdicionaAcao(new EnviaEmail());
+            IList<IExecutaAcoes> executaAcoes = new List<IExecutaAcoes>();
+            executaAcoes.Add(new EnviaEmail());
+            executaAcoes.Add(new EnviaSMS());
+            executaAcoes.Add(new SalvaBanco());
+            executaAcoes.Add(new Multiplicador(5));
+            criador.AdicionaAcao(executaAcoes);
+
+
+            /*criador.AdicionaAcao(new EnviaEmail());
             criador.AdicionaAcao(new EnviaSMS());
             criador.AdicionaAcao(new SalvaBanco());
             criador.AdicionaAcao(new Multiplicador(5));
+            */
             #endregion
 
             NotaFiscal notaFiscal = criador.Build();
